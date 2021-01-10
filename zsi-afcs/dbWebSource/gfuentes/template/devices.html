@@ -1,0 +1,56 @@
+<div class="panel">
+    <div class="panel-container">
+        <div class="panel-content">
+            <div class="zContainer"> 
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-xl-3 col-12 mb-2">
+                        <label for="program_id" class="col-form-label control-label"><b>Company</b></label>
+                        <div class="input-group">
+                            <select type="text" class="form-control form-control-sm " id="company_id" name="company_id"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                         <div id="gridDevices" class="zGrid"></div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">   
+                        <button type="button" class="btn btn-primary btn-sm" id="btnSaveDevices" data-toggle="tooltip" title="Save">
+                            <i class="far fa-save"></i> Save
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" id="btnInactive" data-toggle="tooltip" title="Delete">
+                        	  <i class="fas fa-ban"></i> Inactive
+                        </button>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<div class="modal" id="modalInactiveDevices" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <form id="frm_modalInactive">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalInactive"> Title </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div id="gridInactiveDevices" class="zGrid"> </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <button type="button" id="btnSaveInactiveDevice" class="btn btn-primary btn-sm"><i class="far fa-save"></i> Save</button>
+                            <button type="button" class="btn btn-primary btn-sm" id="btnDeleteDevices" data-toggle="tooltip" title="Delete">
+                            	<i class="fas fa-trash-alt"></i> Delete
+                            </button>   
+                        </div>
+                   </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,445 @@
+<!--Dashboard-->
+<div id="dashboard">
+    <style type="text/css" media="all"> 
+        #graphs .panel-content{
+            min-height: 300px;
+        }
+        .zGraph {
+            min-height: 245px
+        }
+        .set-height{
+            height:30px !important;
+        }
+    </style>
+    <div class="panel main">
+        <div class="panel-container">
+            <div class="panel-content">
+                <div class="col-md-12 col-sm-12 col-xs-12"> 
+                    <div class="row">
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-primary-300 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        21.5k
+                                        <small class="m-0 l-h-n">2016 Total percentage</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-user position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n1" style="font-size:6rem"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-warning-400 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        $10,203
+                                        <small class="m-0 l-h-n">2017 Total percentage</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-gem position-absolute pos-right pos-bottom opacity-15  mb-n1 mr-n4" style="font-size: 6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-success-200 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        - 103.72
+                                        <small class="m-0 l-h-n">2018 Total percentage</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-lightbulb position-absolute pos-right pos-bottom opacity-15 mb-n5 mr-n6" style="font-size: 8rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-info-200 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        +40%
+                                        <small class="m-0 l-h-n">2019 Total percentage</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-globe position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n4" style="font-size: 6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-danger-200 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        +40%
+                                        <small class="m-0 l-h-n">2020 Total percentage</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-globe position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n4" style="font-size: 6rem;"></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-2">
+                            <div class="p-3 bg-fusion-200 rounded overflow-hidden position-relative text-white mb-g">
+                                <div class="">
+                                    <h3 class="display-4 d-block l-h-n m-0 fw-500">
+                                        <span class="m-0 l-h-n">80%</span>
+                                        <small class="m-0 l-h-n">Product level increase</small>
+                                    </h3>
+                                </div>
+                                <i class="fal fa-globe position-absolute pos-right pos-bottom opacity-15 mb-n1 mr-n4" style="font-size: 6rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" id="graphs"> 
+                        <div class="col-md-12 col-sm-12 col-12" id="gUSD">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span>Yearly Collection
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse" data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen" data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close"  data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="border-faded border-top-0 border-left-0 border-bottom-0 py-2 pr-4 mr-3 hidden-sm-down">
+                                            <div class="text-right fw-500 l-h-n d-flex flex-column">
+                                                <div class="h3 m-0 d-flex align-items-center justify-content-end">
+                                                    <div class="icon-stack mr-2">
+                                                        <i class="base base-7 icon-stack-3x opacity-100 color-success-600"></i>
+                                                        <i class="base base-7 icon-stack-2x opacity-100 color-success-500"></i>
+                                                        <i class="fal fa-arrow-up icon-stack-1x opacity-100 color-white"></i>
+                                                    </div> 
+                                                    $44.34 / GE
+                                                </div>
+                                                <span class="m-0 fs-xs text-muted">Increased Profit as daily records</span>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph1"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 graphs mt-3 ">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span><span class="spanYears5"></span>
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse"  data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen"  data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close" data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="pb-5 pt-3">
+                                            <div class="row">
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-200 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,5,8,2</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="16.875" width="4.32" height="10.125"></rect><rect data-value="4" fill="#fff" x="5.94" y="13.5" width="4.319999999999999" height="13.5"></rect><rect data-value="5" fill="#fff" x="11.34" y="10.125" width="4.32" height="16.875"></rect><rect data-value="8" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="2" fill="#fff" x="22.139999999999997" y="20.25" width="4.320000000000004" height="6.75"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Bounce Rate</label>
+                                                        <h4 class="font-weight-bold mb-0">37.56%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">5,3,1,7,9</span><svg class="peity" height="27" width="27"><rect data-value="5" fill="#fff" x="0.54" y="12" width="4.32" height="15"></rect><rect data-value="3" fill="#fff" x="5.94" y="18" width="4.319999999999999" height="9"></rect><rect data-value="1" fill="#fff" x="11.34" y="24" width="4.32" height="3"></rect><rect data-value="7" fill="#fff" x="16.740000000000002" y="6" width="4.319999999999997" height="21"></rect><rect data-value="9" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">759</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,3,5,5</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="10.8" width="4.32" height="16.2"></rect><rect data-value="4" fill="#fff" x="5.94" y="5.399999999999999" width="4.319999999999999" height="21.6"></rect><rect data-value="3" fill="#fff" x="11.34" y="10.8" width="4.32" height="16.2"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="5" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">New Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">12.17%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-500 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">6,4,7,5,6</span><svg class="peity" height="27" width="27"><rect data-value="6" fill="#fff" x="0.54" y="3.8571428571428577" width="4.32" height="23.142857142857142"></rect><rect data-value="4" fill="#fff" x="5.94" y="11.571428571428573" width="4.319999999999999" height="15.428571428571427"></rect><rect data-value="7" fill="#fff" x="11.34" y="0" width="4.32" height="27"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="7.714285714285715" width="4.319999999999997" height="19.285714285714285"></rect><rect data-value="6" fill="#fff" x="22.139999999999997" y="3.8571428571428577" width="4.320000000000004" height="23.142857142857142"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Clickthrough</label>
+                                                        <h4 class="font-weight-bold mb-0">19.77%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph2"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 graphs mt-3 ">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span><span class="spanYears4"></span>
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse"  data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen"  data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close"  data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="pb-5 pt-3">
+                                            <div class="row">
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-200 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,5,8,2</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="16.875" width="4.32" height="10.125"></rect><rect data-value="4" fill="#fff" x="5.94" y="13.5" width="4.319999999999999" height="13.5"></rect><rect data-value="5" fill="#fff" x="11.34" y="10.125" width="4.32" height="16.875"></rect><rect data-value="8" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="2" fill="#fff" x="22.139999999999997" y="20.25" width="4.320000000000004" height="6.75"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Bounce Rate</label>
+                                                        <h4 class="font-weight-bold mb-0">37.56%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">5,3,1,7,9</span><svg class="peity" height="27" width="27"><rect data-value="5" fill="#fff" x="0.54" y="12" width="4.32" height="15"></rect><rect data-value="3" fill="#fff" x="5.94" y="18" width="4.319999999999999" height="9"></rect><rect data-value="1" fill="#fff" x="11.34" y="24" width="4.32" height="3"></rect><rect data-value="7" fill="#fff" x="16.740000000000002" y="6" width="4.319999999999997" height="21"></rect><rect data-value="9" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">759</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,3,5,5</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="10.8" width="4.32" height="16.2"></rect><rect data-value="4" fill="#fff" x="5.94" y="5.399999999999999" width="4.319999999999999" height="21.6"></rect><rect data-value="3" fill="#fff" x="11.34" y="10.8" width="4.32" height="16.2"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="5" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">New Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">12.17%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-500 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">6,4,7,5,6</span><svg class="peity" height="27" width="27"><rect data-value="6" fill="#fff" x="0.54" y="3.8571428571428577" width="4.32" height="23.142857142857142"></rect><rect data-value="4" fill="#fff" x="5.94" y="11.571428571428573" width="4.319999999999999" height="15.428571428571427"></rect><rect data-value="7" fill="#fff" x="11.34" y="0" width="4.32" height="27"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="7.714285714285715" width="4.319999999999997" height="19.285714285714285"></rect><rect data-value="6" fill="#fff" x="22.139999999999997" y="3.8571428571428577" width="4.320000000000004" height="23.142857142857142"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Clickthrough</label>
+                                                        <h4 class="font-weight-bold mb-0">19.77%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph3"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 graphs mt-3 ">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span><span class="spanYears3"></span> 
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse" data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen"  data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close" data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="pb-5 pt-3">
+                                            <div class="row">
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-200 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,5,8,2</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="16.875" width="4.32" height="10.125"></rect><rect data-value="4" fill="#fff" x="5.94" y="13.5" width="4.319999999999999" height="13.5"></rect><rect data-value="5" fill="#fff" x="11.34" y="10.125" width="4.32" height="16.875"></rect><rect data-value="8" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="2" fill="#fff" x="22.139999999999997" y="20.25" width="4.320000000000004" height="6.75"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Bounce Rate</label>
+                                                        <h4 class="font-weight-bold mb-0">37.56%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">5,3,1,7,9</span><svg class="peity" height="27" width="27"><rect data-value="5" fill="#fff" x="0.54" y="12" width="4.32" height="15"></rect><rect data-value="3" fill="#fff" x="5.94" y="18" width="4.319999999999999" height="9"></rect><rect data-value="1" fill="#fff" x="11.34" y="24" width="4.32" height="3"></rect><rect data-value="7" fill="#fff" x="16.740000000000002" y="6" width="4.319999999999997" height="21"></rect><rect data-value="9" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">759</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,3,5,5</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="10.8" width="4.32" height="16.2"></rect><rect data-value="4" fill="#fff" x="5.94" y="5.399999999999999" width="4.319999999999999" height="21.6"></rect><rect data-value="3" fill="#fff" x="11.34" y="10.8" width="4.32" height="16.2"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="5" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">New Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">12.17%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-500 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">6,4,7,5,6</span><svg class="peity" height="27" width="27"><rect data-value="6" fill="#fff" x="0.54" y="3.8571428571428577" width="4.32" height="23.142857142857142"></rect><rect data-value="4" fill="#fff" x="5.94" y="11.571428571428573" width="4.319999999999999" height="15.428571428571427"></rect><rect data-value="7" fill="#fff" x="11.34" y="0" width="4.32" height="27"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="7.714285714285715" width="4.319999999999997" height="19.285714285714285"></rect><rect data-value="6" fill="#fff" x="22.139999999999997" y="3.8571428571428577" width="4.320000000000004" height="23.142857142857142"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Clickthrough</label>
+                                                        <h4 class="font-weight-bold mb-0">19.77%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph4"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 graphs mt-3 ">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span><span class="spanYears2"></span> 
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse" data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen"  data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close" data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="pb-5 pt-3">
+                                            <div class="row">
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-200 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,5,8,2</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="16.875" width="4.32" height="10.125"></rect><rect data-value="4" fill="#fff" x="5.94" y="13.5" width="4.319999999999999" height="13.5"></rect><rect data-value="5" fill="#fff" x="11.34" y="10.125" width="4.32" height="16.875"></rect><rect data-value="8" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="2" fill="#fff" x="22.139999999999997" y="20.25" width="4.320000000000004" height="6.75"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Bounce Rate</label>
+                                                        <h4 class="font-weight-bold mb-0">37.56%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">5,3,1,7,9</span><svg class="peity" height="27" width="27"><rect data-value="5" fill="#fff" x="0.54" y="12" width="4.32" height="15"></rect><rect data-value="3" fill="#fff" x="5.94" y="18" width="4.319999999999999" height="9"></rect><rect data-value="1" fill="#fff" x="11.34" y="24" width="4.32" height="3"></rect><rect data-value="7" fill="#fff" x="16.740000000000002" y="6" width="4.319999999999997" height="21"></rect><rect data-value="9" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">759</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,3,5,5</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="10.8" width="4.32" height="16.2"></rect><rect data-value="4" fill="#fff" x="5.94" y="5.399999999999999" width="4.319999999999999" height="21.6"></rect><rect data-value="3" fill="#fff" x="11.34" y="10.8" width="4.32" height="16.2"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="5" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">New Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">12.17%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-500 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">6,4,7,5,6</span><svg class="peity" height="27" width="27"><rect data-value="6" fill="#fff" x="0.54" y="3.8571428571428577" width="4.32" height="23.142857142857142"></rect><rect data-value="4" fill="#fff" x="5.94" y="11.571428571428573" width="4.319999999999999" height="15.428571428571427"></rect><rect data-value="7" fill="#fff" x="11.34" y="0" width="4.32" height="27"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="7.714285714285715" width="4.319999999999997" height="19.285714285714285"></rect><rect data-value="6" fill="#fff" x="22.139999999999997" y="3.8571428571428577" width="4.320000000000004" height="23.142857142857142"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Clickthrough</label>
+                                                        <h4 class="font-weight-bold mb-0">19.77%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph5"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-12 graphs mt-3 ">
+                            <div class="panel mb-0">
+                                <div class="panel-hdr text-primary">
+                                    <h2>
+                                        <span class="mr-2"><i class="far fa-chart-pie"></i></span><span class="spanYears1"></span>
+                                    </h2>
+                                    <div class="panel-toolbar"> 
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse" data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen" data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                                        <button class="btn btn-panel waves-effect waves-themed fal fa-trash" data-action="panel-close" data-offset="0,10" data-original-title="Close" data-toggle="tooltip" title="Delete"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-container show">
+                                    <div class="panel-content">
+                                        <div class="pb-5 pt-3">
+                                            <div class="row">
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-200 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,5,8,2</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="16.875" width="4.32" height="10.125"></rect><rect data-value="4" fill="#fff" x="5.94" y="13.5" width="4.319999999999999" height="13.5"></rect><rect data-value="5" fill="#fff" x="11.34" y="10.125" width="4.32" height="16.875"></rect><rect data-value="8" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="2" fill="#fff" x="22.139999999999997" y="20.25" width="4.320000000000004" height="6.75"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Bounce Rate</label>
+                                                        <h4 class="font-weight-bold mb-0">37.56%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-info-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">5,3,1,7,9</span><svg class="peity" height="27" width="27"><rect data-value="5" fill="#fff" x="0.54" y="12" width="4.32" height="15"></rect><rect data-value="3" fill="#fff" x="5.94" y="18" width="4.319999999999999" height="9"></rect><rect data-value="1" fill="#fff" x="11.34" y="24" width="4.32" height="3"></rect><rect data-value="7" fill="#fff" x="16.740000000000002" y="6" width="4.319999999999997" height="21"></rect><rect data-value="9" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">759</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-300 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">3,4,3,5,5</span><svg class="peity" height="27" width="27"><rect data-value="3" fill="#fff" x="0.54" y="10.8" width="4.32" height="16.2"></rect><rect data-value="4" fill="#fff" x="5.94" y="5.399999999999999" width="4.319999999999999" height="21.6"></rect><rect data-value="3" fill="#fff" x="11.34" y="10.8" width="4.32" height="16.2"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="0" width="4.319999999999997" height="27"></rect><rect data-value="5" fill="#fff" x="22.139999999999997" y="0" width="4.320000000000004" height="27"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">New Sessions</label>
+                                                        <h4 class="font-weight-bold mb-0">12.17%</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 col-xl-3 d-sm-flex align-items-center">
+                                                    <div class="p-2 mr-3 bg-success-500 rounded">
+                                                        <span class="peity-bar" data-peity="{&quot;fill&quot;: [&quot;#fff&quot;], &quot;width&quot;: 27, &quot;height&quot;: 27 }" style="display: none;">6,4,7,5,6</span><svg class="peity" height="27" width="27"><rect data-value="6" fill="#fff" x="0.54" y="3.8571428571428577" width="4.32" height="23.142857142857142"></rect><rect data-value="4" fill="#fff" x="5.94" y="11.571428571428573" width="4.319999999999999" height="15.428571428571427"></rect><rect data-value="7" fill="#fff" x="11.34" y="0" width="4.32" height="27"></rect><rect data-value="5" fill="#fff" x="16.740000000000002" y="7.714285714285715" width="4.319999999999997" height="19.285714285714285"></rect><rect data-value="6" fill="#fff" x="22.139999999999997" y="3.8571428571428577" width="4.320000000000004" height="23.142857142857142"></rect></svg>
+                                                    </div>
+                                                    <div>
+                                                        <label class="fs-sm mb-0">Clickthrough</label>
+                                                        <h4 class="font-weight-bold mb-0">19.77%</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-container collapse show">
+                                            <div class="panel-content">
+                                                <div class="zGraph" id="graph6"></div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--- i transfered amchats4 libs to views/shared/_layout.cshmtl : gf -->
+</div>
+ 
