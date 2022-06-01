@@ -1,0 +1,38 @@
+<div class="panel">
+    <div class="panel-container">
+        <div class="panel-content">
+            <div class="row"> 
+                <div class="col-sm-6 col-md-3 col-xl-2 col-12 mb-2  date-range">
+                    <label class="form-label">From: </label>
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-sm pl-2" id="posted_date_from" name="posted_date_from"/>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3 col-xl-2 col-12 mb-2  date-range">
+                    <label class="form-label">To: </label> 
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-sm pl-2" id="posted_date_to" name="posted_date_to"/>
+                    </div>
+                    <small id="ermsgId" class="ml-2 " style="color:red;"></small>
+                </div>
+                <div class="col-sm-6 col-md-3 col-xl-2 col-12 mt-4">
+                    <div class="input-group-append" id="recentBtn">
+                        <button id="btnFilter" class="btn-sm btn btn-primary btn-outline-default text-white hvr-sweep-to-left" type="button" title="Filter">
+                          <i class="fas fa-filter"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1" id="forGrid">
+                     <div id="gridPaymentSumm" class="zGrid"></div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">    
+                    <div class="button-group">     
+                        <button type="button" class="btn btn-primary btn-sm hvr-sweep-to-left" id="btnExportTransations">
+                            <i class="far fa-save"></i> Export To Excel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>

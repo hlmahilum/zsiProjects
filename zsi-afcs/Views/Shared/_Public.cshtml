@@ -7,11 +7,14 @@
 	<meta name="Developed By" content="zetta-solutions.net">
     <link rel="shortcut icon" href='@Url.Content("~/")favicon.png' type="image/x-icon">
     <title>@ViewBag.pageTitle </title>
+	<script src='@Url.Content("~/")Scripts/jquery.min.js'></script>
+	<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>
    <!-- Call App Mode on ios devices -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<!-- Remove Tap Highlight on Windows Phone IE -->
-	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="msapplication-tap-highlight" content="no"> 
 	<!-- base css -->
+	
 	<link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/vendors.bundle.css'>
 	<link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/app.bundle.css'>
 	<link rel="mask-icon" href='@Url.Content("~/")img/favicon/safari-pinned-tab.svg' color="#5bbad5">
@@ -21,7 +24,13 @@
     <link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/formplugins/select2/select2.bundle.css'>
     <link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css'>
 	<link id="myskins" rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/skins/skin-master.css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+	@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsipublib")) 
+	<script>
+        var base_url = '@Url.Content("~/")';
+        var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
+    </script>	
 	<style type="text/css">
 		body{
 			padding: 0;
@@ -88,9 +97,6 @@
 	</style>
 </head>
 <body>
-	<script src='@Url.Content("~/")Scripts/jquery.min.js'></script>
-	<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>
-    @Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsipublib"))   	
     <script>
         var base_url = '@Url.Content("~/")';
         var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
@@ -122,13 +128,11 @@
 					</div>
 				</div>
 				<div class="flex-1" style="background: url(@Url.Content("~/")img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">
-					<div class="container  px-sm-0">
-						<div class="row">
-							@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("appPubStart"))
-							<main id="js-page-content" role="main" class="page-content" style="background: url(@Url.Content("~/")img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">							
-								@RenderBody()
-							</main>
-						</div>
+					<div class="container  px-sm-0 p-0">
+						@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("appPubStart"))
+						<main id="js-page-content" role="main" class="page-content" style="background: url(@Url.Content("~/")img/svg/pattern-1.svg) no-repeat center bottom fixed; background-size: cover;">							
+							@RenderBody()
+						</main>
 					</div>
 				</div>
 			</div>

@@ -1,0 +1,91 @@
+<script type="text/javascript" src="/scripts/print.min.js"></script>
+<style>
+  
+    .zGraph{  
+        width: 100%; 
+    }
+    
+</style> 
+
+<div class="panel">
+    <div class="panel-container">
+        <div class="panel-content">  
+            <div class="row" id="leaveDD">
+                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                    <label class="col-form-label"><b>Year</b></label>
+                    <select id="year" class="form-control form-control-sm" name="year"></select>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-xl-3">
+                    <label class="col-form-label"><b>Month</b></label>
+                    <select id="month" class="form-control form-control-sm" name="month"></select>
+                </div> 
+                <div class="col-12 col-sm-6 col-md-3 col-xl-3 mb-2">
+                    <label class="col-form-label">&nbsp;</label>
+                    <div class="input-group">
+                        <div class="input-group-append">
+                            <button id="btnFilterEarners" class="btn-sm btn btn-primary btn-outline-default text-white hvr-sweep-to-left" type="button" title="Filter">
+                              <i class="fas fa-filter"></i>
+                            </button>&nbsp;
+                            <button id="btnShowSumm" class="btn-sm btn btn-primary btn-outline-default text-white hvr-sweep-to-left hide" type="button" title="Show Summary">
+                                Top Earners Summary
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>  
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="panel" >
+                        <div class="panel-hdr text-primary">
+                            <h2>
+                                <span class="mr-2" ><i class="far fa-chart-pie"></i></span><span id="hdrTopEarners">Top Eearners</span> 
+                            </h2>
+                            <div class="panel-toolbar ml-2">
+                                <button class="btn btn-panel waves-effect waves-themed fal fa-window-minimize" data-action="panel-collapse" data-offset="0,10" data-original-title="Collapse" data-toggle="tooltip" title="Collapse"></button>
+                                <button class="btn btn-panel waves-effect waves-themed fal fa-expand" data-action="panel-fullscreen" data-offset="0,10" data-original-title="Fullscreen" data-toggle="tooltip" title="Expand"></button>
+                            </div>
+                        </div>
+                        
+                        <div class="panel-container show" id="panelContainer">
+                            <div class="panel-content">
+                                <div class="row">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1 gridCollapse">
+                                        <div class="zGraph" id="graphTopEarners"></div>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+</div>
+<div class="modal fade show" id="modalTopRecords" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 id="modalTitle" class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" title="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-12 col-sm-12 col-md-12">  
+                    <div class="row mt-2">  
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1">
+                            <div class="zGrid" id="gridTopEarners"></div>
+                        </div>  
+                    </div> 
+                    <button type="button" class="btn btn-primary btn-sm btn-ol btnExport mt-1 hvr-sweep-to-left" download="testing.xls" >Export to Excel</button> 
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+
+
+

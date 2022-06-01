@@ -1,11 +1,8 @@
 var users = (function(){
     var   bs                    = zsi.bs.ctrl
         , tblName               = "tblusers"
-        , mdlImageUser        = "modalWindowImageUser"
         , mdlAddNewUser         = "modalWindowAddNewUser"
         , mdlInactive           = "modalWindowInactive"
-        , mdlOEM                = "modalWindowOEM"
-        , mdlAddNewOEM          = "modalWindowAddNewOEM"
         , cuser_id
         , svn                   = zsi.setValIfNull
         , isNew                 = false
@@ -15,37 +12,21 @@ var users = (function(){
         , gSearchValue          = "" 
         , gFilterOption         = ""
         , gFilterValue          = ""
-        , gRoleId               = ""
         , gUserId               = null
         , pub                   = {}
         , ctr                   = 0
-        , gUsersData             = []
-        , gUserIndex             = -1
-        , g$NewRow               = {}
     ;
 
     zsi.ready = function(){
         gTw = new zsi.easyJsTemplateWriter();
         setSearch();
-        setInputs();
         displayRecords("");
         getTemplates();
-        $(".page-title").html("Users");
-        //$(".panel").css("height", $(".page-content").height()); 
+        $(".page-title").html("Users"); 
         
-        $("#btnDeleteUser").click(function(){
-            zsi.form.deleteData({
-                 code       : "ref-00022"
-                ,onComplete : function(data){
-                    $('#modalWindowInactive').modal('toggle');
-                }
-            });     
-        });
     };
    
-    $.fn.clearValue = function(){
-       this.html("<option></option>"); 
-    }; 
+     
     
     pub.submitInactive = function(){
         var _$grid = $("#gridInactiveUsers");
@@ -67,200 +48,53 @@ var users = (function(){
         if(!res.result){
             $("#gridNewUsers").jsonSubmit({
                      procedure  : "users_upd"
-                     ,optionalItems: ["is_active","is_contact"]
+                     ,optionalItems: ["is_active","is_admin"]
                      ,notIncludes: ["employee"]
                      ,onComplete : function (data) {
                          if(data.isSuccess===true){
                             zsi.form.showAlert("alert");
-                            isNew = false;
+                             isNew = false;
                             displayRecords();
                             displayAddNewUser();
                          }
                     }
-            });        
-            //$('#' + mdlAddNewUser).modal('hide');
+            });         
         } else {
             alert("Enter " + res.inputName);
         }
-    };
-    
-    pub.getCurrentUser=function(){
-        return gUsersData[gUserIndex];
-    };
-
-    pub.setOEMItemTmpl  = function(text, value){
-        return '<li class="list-group-item" id='+ value +'>' + text 
-            +    '<i class="fas fa-minus-circle" aria-hidden="true" id='+ value + ' onclick="users.removeOEM(this);" style="float: right; cursor:pointer;"></i>'
-            + '</li>';
-    };    
+    };  
         
-    pub.addList = function(self){
-        
-        addList({
-             formSelector    : "#frm_modalWindowOEM"
-            ,info            : users.getCurrentUser()
-            ,button          : self
-        });
-       
-    };
-
-    pub.removeOEM = function(o){
-        var _$li = $(o).closest("li");
-        var _oem_id  = _$li.attr("id");
-        
-        var _info = null;
-        
-        if ( $(o).closest(".modal").attr("id").toLowerCase().includes("new") ){
-            //new    
-            _info = g$NewRow.info;
-        }
-        else{
-            //existing data;
-           _info = users.getCurrentUser();
-            
-        }
-        
-        var _i = _info.keyValue.findIndex( function(x) { return x.value ==  _oem_id;});
-
-        _info.keyValue.splice(_i,1);
-        
-        var _oem_ids="",_oems="";
-        for( var i = 0; i < _info.keyValue.length; i++){ 
-            if(_oem_ids !=="") {
-                _oem_ids  +=",";
-                _oems  +=",";
-            }
-            _oem_ids  += _info.keyValue[i].value;
-            _oems  += _info.keyValue[i].key;
-        }
-        _info.oem_ids = _oem_ids;
-        _info.oems = _oems;
-        
-        var _$row = $(_info.anchor).closest(".zRow");
-        _$row.find("#oem_ids").val(_oem_ids);
-        _$row.find("#is_edited").val("Y");        
-        _info.anchor.text = _oems;
-        _$li.remove();
-    };
-    
-    pub.saveUsersOEM = function(o){
-        var _info = users.getCurrentUser();
-        $.post( app.procURL + "user_oems_upd "
-            + "@upd_user_id='" + _info.user_id + "'"
-            + ",@oem_ids='" + _info.oem_ids + "'" 
-            ,function(data){
-                if(data.isSuccess===true){
-                    zsi.form.showAlert("alert");        
-                } 
-        });
-    }; 
-    
-    pub.showModalOEM = function(obj,index){
-        gUserIndex = index;
-        var _info = users.getCurrentUser();
-        _info.anchor = obj;
-        var g$mdl = $("#" + mdlOEM);
-        var $form = g$mdl.find("form");
-        g$mdl.find(".modal-title").text("OEM") ;
-        g$mdl.modal({ show: true, keyboard: false, backdrop: 'static' });
-        $form.find("#oem_filter_id").dataBind("oem");
-        displayOEMList($form,_info);
-        
-    };
-
-    pub.showModalAddNewOEM = function(obj,index){
-        gUserIndex = index;
-        var g$mdl = $("#" + mdlAddNewOEM);
-        var $form = g$mdl.find("form");
-        g$mdl.find(".modal-title").text("OEM") ;
-        g$mdl.modal({ show: true, keyboard: false, backdrop: 'static' });
-        
-        $form.find("#oem_filter_id").dataBind("oem");
-        
-        //requirements for new parameters.
-        if( isUD(obj.info) )  { 
-            obj.info= {oem_ids:"",oems:"",keyValue:[],anchor:obj};
-            g$NewRow  =  $(obj).closest(".zRow");
-        }
-        g$NewRow.info = obj.info;
-        displayOEMList( $form, obj.info);  
-    };
-    
-    pub.addNewList = function(self){
-        addList({
-             formSelector    : "#frm_modalWindowAddNewOEM"
-            ,info            : g$NewRow.info
-            ,button          : self
-        });
-        
-    };
-
-    pub.showModalUploadUserImage = function(UserId, name){
-        user_id = UserId;
-        var m=$('#' + mdlImageUser);
-        
-        m.find(".modal-title").text("Image User for » " + name);
-        m.modal("show");
-        m.find("form").attr("enctype","multipart/form-data");
-        
-        $.get(base_url + 'page/name/tmplImageUpload'
-            ,function(data){
-                m.find('.modal-body').html(data);
-                m.find("#prefixKey").val("user.");
-            }
-        ); 
-    };
-    
-    pub.uploadImageUser = function(){
-        var frm = $("#frm_" + mdlImageUser);
-        var fileOrg=frm.find("#file").get(0);
-    
-        if( fileOrg.files.length<1 ) { 
-             alert("Please select image.");
-            return;
-        }
-        var formData = new FormData( frm.get(0));
-        $.ajax({
-            url: base_url + 'file/UploadImage',  //server script to process data
-            type: 'POST',
-    
-            //Ajax events
-            success: completeHandler = function(data) {
-                if(data.isSuccess){
-                    //submit filename to server
-                    $.get(base_url  + "sql/exec?p=dbo.image_file_users_upd @user_id=" + user_id
-                                    + ",@img_filename='user." +  fileOrg.files[0].name + "'"
-                    ,function(data){
-                        zsi.form.showAlert("alert");
-                        $('#' + mdlImageUser).modal('toggle');
-                        
-                        //refresh latest records:
-                        displayRecords();
-                    });   
-                }else
-                    alert(data.errMsg);
-            },
-            error: errorHandler = function() {
-                console.log("error");
-            },
-            // Form data
-            data: formData,
-            //Options to tell JQuery not to process data or worry about content-type
-            cache: false,
-            contentType: false,
-            processData: false
-        }, 'json');
-    };
-    
-    pub.mouseover = function(filename){
-     $("#user-box").css("display","block");
-     $("#user-box img").attr("src",base_url + "file/viewImage?fileName=" +  filename + "&isThumbNail=n");
-    };
     
     pub.mouseout = function (){
         $("#user-box").css("display","none");
     }; 
+    function isRequiredInputFound(form){
+        var result = false;
+        var inputName = "";
+        $(form).find("input[name='is_edited']").each(function(e){
+            if($.trim(this.value) === "Y"){
+                var $zRow = $(this).closest(".zRow");
+                var logon = $zRow.find("[name='logon']").val();
+                var emplId = $zRow.find("[name='employee']").val();
+                var roleID = $zRow.find("[name='role_id']").val();
+                
+                if ($.trim(logon) === ""){
+                    result = true;
+                    inputName = "Logon";
+                }  
+                if ($.trim(roleID) === ""){
+                    result = true;
+                    inputName = "Role";
+                }
+                 if ($.trim(emplId) === ""){
+                    result = true;
+                    inputName = "Employee";
+                }
+            }
+        });
     
+        return {result, inputName};
+    }
     function getTemplates(){
         new zsi.easyJsTemplateWriter($("#generatedComponents").empty())
         .bsModalBox({
@@ -276,102 +110,8 @@ var users = (function(){
             , title     : "New User"
             , body      : gTw.new().modalBodyAddUsers({grid:"gridNewUsers",onClickSaveNewUsers:"users.submitNewUsers();"}).html()  
         })
-        .bsModalBox({
-              id        : mdlOEM
-            , sizeAttr  : "modal-md"
-            , title     : "New User"
-            , body      : gTw.new().modalBodyOEM({oemListGroup:"oemList"}).html()  
-        })
-        .bsModalBox({
-              id        : mdlAddNewOEM
-            , sizeAttr  : "modal-md"
-            , title     : "New User"
-            , body      : gTw.new().modalBodyAddNewOEM({oemListGroup:"oemList"}).html()  
-        })
-        .bsModalBox({
-              id        : mdlImageUser
-            , sizeAttr  : "modal-md"
-            , title     : "Inactive Users"
-            , body      : ""
-            , footer    : gTw.new().modalBodyImageUser({onClickUploadImageUser:"users.uploadImageUser();"}).html()  
-        });
     
     } 
-
-    function removeRecipient(){
-        var selected = $("input[name=recp_cb]:checked").getCheckBoxesValues();
-        $.each(selected, function(index, row){
-            recipients.splice(recipients.findIndex(x => x._userid==row),1);
-            $("#AddNewRecpmodalWindow").find("input[name=user_id][value="+row+"]").closest(".zRow").remove();
-        });
-        alert(selected.length+" recipients removed");
-    }
-
-    function initChangeEvent(){
-        $("input[name='file_thumbnail']").change(function(){
-            fileNameThumbNail= this.files[0].name;
-            var fileSize1 =  this.files[0].size / 1000.00; //to kilobytes
-            if(fileSize1 > 100){ 
-                alert("Please make sure that file size must not exceed 100 KB.");
-                this.value="";
-            }
-        });
-        
-        $("input[name='file']").change(function(){
-            fileNameOrg=this.files[0].name;
-            var fileSize2 =  this.files[0].size / 1000.00; //to kilobytes
-            if(fileSize2 > 800){ //1mb
-                alert("It is recommended that file size must not exceed 800 KB.");
-                this.value="";
-            }
-        });
-    }
-    
-    function isRequiredInputFound(form){
-        var result = false;
-        var inputName = "";
-        $(form).find("input[name='is_edited']").each(function(e){
-            if($.trim(this.value) === "Y"){
-                var $zRow = $(this).closest(".zRow");
-                var logon = $zRow.find("[name='logon']").val();
-                var roleID = $zRow.find("[name='role_id']").val();
-                
-                if ($.trim(logon) === ""){
-                    result = true;
-                    inputName = "Logon";
-                }
-                //if ($.trim(firstName) === ""){
-                //    result = true;
-                //    inputName = "First Name";
-                //}
-                //if ($.trim(lastName) === ""){
-                //    result = true;
-                //    inputName = "Last Name";
-                //}
-                if ($.trim(roleID) === ""){
-                    result = true;
-                    inputName = "Role";
-                }
-            }
-        });
-    
-        return {result, inputName};
-    }
-    
-    function markNewUserMandatory(){
-        zsi.form.markMandatory({       
-          "groupNames":[
-                {
-                     "names" : ["logon"]
-                    ,"type":"M"
-                }             
-              
-          ]      
-          ,"groupTitles":[ 
-                 {"titles" : ["Logon"]}
-          ]
-        });    
-    }
     
     function setSearch(){
         gSearchOption = "";
@@ -400,40 +140,6 @@ var users = (function(){
         });
     }
     
-    function setInputs(){
-        logon_id_filter = $("#logon_id_filter");
-    }   
-    
-    function manageItem(id,title){
-        cuser_id = id;
-        
-        displayOemRegion(id);
-        
-         $("#frm_modalWindowOemRegion .modal-title").text("OEM Region for » " + title);
-        $('#modalWindowOemRegion').modal({ show: true, keyboard: false, backdrop: 'static' });
-        if (modalWindowOemRegion===0) {
-            modalWindowOemRegion=1;
-            $("#modalWindowOemRegion").on("hide.bs.modal", function () {
-                    if (confirm("You are about to close this window. Continue?")) return true;
-                    return false;
-            });
-        }
-    }
-
-    function submitItemsUserOR(){
-        $("#frm_modalWindowOemRegion").jsonSubmit({
-             procedure      : "user_oem_region_upd"
-          ,optionalItems  : ["user_oem_region_id,user_id"]
-            ,onComplete     : function (data) {
-                if(data.isSuccess===true)
-                $("#" + tblName2).clearGrid();
-                 displayOemRegion(cuser_id);
-                 zsi.form.showAlert("alert");
-                $("#grid").trigger('refresh');
-            }
-        });
-    }
-    
     function displayInactiveUsers(){
         var cb = app.bs({name:"cbFilter",type:"checkbox"});
         $("#gridInactiveUsers").dataBind({
@@ -444,6 +150,7 @@ var users = (function(){
                 
                 {text: cb  ,width : 25   ,style : "text-align:left;"
                     ,onRender :function(d){
+                                console.log("d",d)
                                     return     app.bs({name:"user_id"   ,type:"hidden"  ,value: d.user_id})
                                              + app.bs({name:"is_edited" ,type:"hidden"})
                                              + app.bs({name:"client_id" ,type:"hidden"  ,value: d.client_id})
@@ -466,7 +173,7 @@ var users = (function(){
                ,{text  : "Active?"  , width : 50    , style : "text-align:center;"  ,type:"yesno"  ,name:"is_active"    ,defaultValue:"N"}
             ]
             ,onComplete: function(o){
-                this.find("[name='cbFilter']").setCheckEvent("#gridInactiveCustomers input[name='cb']");
+                this.find("[name='cbFilter']").setCheckEvent("#gridInactiveUsers input[name='cb']");
             }
         });  
     }
@@ -485,7 +192,7 @@ var users = (function(){
                         ctr++;
                         return app.bs({name:"user_id"       ,type:"hidden"   ,value: app.svn(d,"user_id")})
                             +  app.bs({name:"is_edited"     ,type:"hidden"})
-                            +  app.bs({name:"client_id"     ,type:"hidden"   ,value: app.userInfo.client_id})
+                            +  app.bs({name:"client_id"     ,type:"hidden"   ,value: app.userInfo.company_id})
                             +  app.bs({name:"logon"         ,type:"input"    ,value: app.svn(d,"logon")});
                     }
         		}
@@ -498,10 +205,6 @@ var users = (function(){
                             +  app.bs({name:"name_suffix"   ,type:"hidden"});
                     }
         		}
-                //,{text  : "First Name"          ,width: 150           ,style: "text-align:left;"            ,type:"input"       ,name:"first_name"      ,sortColNo:4}
-                //,{text  : "Last Name"           ,width: 150           ,style: "text-align:left;"            ,type:"input"       ,name:"last_name"       ,sortColNo:6}
-                //,{text  : "Middle Initial"      ,width: 130           ,style: "text-align:center;"          ,type:"input"       ,name:"middle_name" }
-                //,{text  : "Name Suffix"         ,width: 100           ,style: "text-align:center;"          ,type:"input"       ,name:"name_suffix" }
                 ,{text  : "Role"                ,width: 160             ,style: "text-align:center;"            ,type: "select"      ,name: "role_id"}
                 ,{text  : "Admin?"              ,width: 60              ,style : "text-align:center;"           ,type: "yesno"       ,name: "is_admin"          ,defaultValue: "N"}
                 ,{text  : "Active?"             ,width: 60              ,style : "text-align:center;"           ,type: "yesno"       ,name: "is_active"         ,defaultValue: "Y"}
@@ -514,7 +217,7 @@ var users = (function(){
                 });       
                 
                 this.find("[name='employee']").dataBind({
-                     sqlCode : "D1432"
+                     sqlCode : "D1506"
                     ,text    : "fullname"
                     ,value   : "id"
                     ,onChange: function(d){
@@ -530,14 +233,12 @@ var users = (function(){
                         $(this).closest(".zRow").find("[name='name_suffix']").val(_nameSuffix);
                     }
                 });
-                
-                this.find("[name='cbFilter1']").setCheckEvent("#grid input[name='cb']");
-    
-                this.find("select[name='role_id']").dataBind({
+                this.find("[name='role_id']").dataBind({
                      sqlCode : "D1435"
-                    ,text   : "role_name"
-                    ,value  : "role_id"
+                    ,text    : "role_name"
+                    ,value   : "role_id" 
                 });
+                this.find("[name='cbFilter1']").setCheckEvent("#grid input[name='cb']"); 
     
                 markNewUserMandatory();
                 
@@ -553,8 +254,8 @@ var users = (function(){
             ,parameters     : {
                                  searchOption   : gSearchOption 
                                 ,searchValue    : gSearchValue 
-                                ,role_id        : gRoleId
-                                ,client_id     : app.userInfo.company_id
+                                ,role_id        : gRoleId 
+                                ,client_id      : app.userInfo.company_id
             }
      	    ,width          : $("#frm").width()
     	    ,height         : $(window).height() - 302 
@@ -562,19 +263,12 @@ var users = (function(){
             ,rowsPerPage    : 50
             ,isPaging : true
             ,dataRows       : [
-                { text:"image"             , width:40      , style:"text-align:center;" 
-    		    ,onRender : function(d){ 
-                        var mouseMoveEvent= "onmouseover='users.mouseover(\"" +  svn(d,"img_filename") + "\");' onmouseout='users.mouseout();'";
-                        var html = "<a href='javascript:void(0);' "+ mouseMoveEvent +" class='btn btn-sm has-tooltip' onclick='users.showModalUploadUserImage(" + svn(d,"user_id") +",\"" 
-    		                           + svn(d,"userFullName") + "\");' data-toggle='tooltip' data-original-title='Upload Image'><i class='fas fa-image'></i> </a>";
-                        return (d!==null ? html : "");
-                    }
-    		    }
-        		,{text  : "Logon "     , width : 155           , style : "text-align:center;"         ,sortColNo:3
+                 
+        		{text  : "Logon "     , width : 155           , style : "text-align:center;"         ,sortColNo:3
                     ,onRender : function(d){ 
                         ctr++;
                         return app.bs({name:"user_id"   ,type:"hidden"  ,value:app.svn(d,"user_id") })
-                            +  app.bs({name:"is_edited" ,type:"hidden"})
+                            +  app.bs({name:"is_edited" ,type:"hidden" })
                             +  app.bs({name:"client_id" ,type:"hidden"  ,value:app.svn(d,"client_id")})
                             +  app.bs({name:"logon"     ,type:"input"   ,value:app.svn(d,"logon")   });
                                                  
@@ -602,104 +296,52 @@ var users = (function(){
                     $(this).closest(".zRow").find("[name='is_edited']").val("Y");
                     
                 }
-                
             
                 this.find("[name='cbFilter1']").setCheckEvent("#grid input[name='cb']");
                 this.find("select[name='role_id']").dataBind({
-                     sqlCode : "D1435"
-                    ,text   : "role_name"
-                    ,value  : "role_id"
+                    sqlCode : "D1435"
+                   ,text    : "role_name"
+                   ,value   : "role_id"
                 });
+              
                 this.find("select[name='plant_id']").dataBind("plants");
                 this.find("select[name='warehouse_id']").dataBind("warehouse");
-
+                this.find("[name='logon']").attr("readonly",true);
                 markNewUserMandatory();
                 $(".no-data input[name='logon']").checkValueExists({code:"adm-0002",colName:"logon"
                    ,isNotExistShow :  false
                    ,message : "data already exists"
                 });
+                if(app.userInfo.is_admin!=="Y"){
+                    $("#btnDiv").addClass("hide");
+                    this.find("input,select").attr("disabled",true);
+                }
             }
         });    
     } 
     
-    function displayOEMList($frm,info){
-        var _h = "";
-        info.keyValue = [];
-        if( info.oem_ids  !== ""){
-            $.each(info.oems.split(","), function(i,y){ 
-                var oem_id = info.oem_ids.split(",")[i];
-                _h +=pub.setOEMItemTmpl(y,oem_id);
-                info.keyValue.push(  {key: y, value:oem_id});
-            });
-            $frm.find("#btnSaveUsersOEM").removeClass("d-none");
-        }
-        $frm.find("#listItemGroup").html(_h);        
-        
+    function markNewUserMandatory(){
+        zsi.form.markMandatory({       
+          "groupNames":[
+                {
+                     "names" : ["logon"]
+                    ,"type":"M"
+                }             
+              
+          ]      
+          ,"groupTitles":[ 
+                 {"titles" : ["Logon"]}
+          ]
+        });    
     }
-
-    function addList(o){
-        var _info = o.info;
-        var _$mdl = $(o.button).closest( o.formSelector );
-        var _filterText = _$mdl.find("#oem_filter_id :selected").text();
-        var _filterValue = _$mdl.find("#oem_filter_id :selected").val();
-        var _ids = _info.oem_ids.split(",");
-        var _names = _info.oems.split(",");
-        
-        if(_filterValue ==="" ){
-             alert("Please Select OEM.");
-             return;
-        }
-        
-        if(_ids.includes(_filterValue) ){
-             alert("Already exist.");
-             return;
-        }
-        _$mdl.find("#oemListGroup").find("#listItemGroup").append(pub.setOEMItemTmpl(_filterText,_filterValue) );
-        _$mdl.find("#btnSaveUsersOEM").removeClass("d-none"); 
-        
-        if(_info.oem_ids !=="") {
-            _info.oem_ids +=",";
-            _info.oems +=",";
-        }
-        
-        _info.oems +=_filterText;
-        _info.oem_ids +=_filterValue;
-        _info.keyValue.push(  {key: _filterText, value:_filterValue});
-        
-        if(_info.anchor.text !=="") _info.anchor.text +=",";
-        _info.anchor.text +=_filterText;
-        
-        var _$row = $(_info.anchor).closest(".zRow");
-        var _oem_ids= _$row.find("#oem_ids").val();
-         
-          
-        if(_oem_ids !=="") _oem_ids +=",";
-        _oem_ids +=_filterValue;
-        _$row.find("#oem_ids").val(_oem_ids);
-        _$row.find("#is_edited").val("Y"); 
-    } 
-    
-    function showModalUploadImage(filename){
-        var m=$('#modalWindow');
-        
-        m.modal("show");
-        var img = "<img src='"  + base_url + "file/viewImage?fileName=" +  filename + "'>";
-        m.find('.modal-body').html(img); 
-    }
-    
-    function closeModalSendEmail(){
-        $('#modalSendEmail').modal("hide");
-    }
-    
-    function setEditedRow(){
-        $("input, select").on("change keyup paste", function(){
-            $(this).closest(".zRow").find("#is_edited").val("Y");
-        });  
-        
-        $(".zDdlBtn").on("click", function(){
-            $(this).closest(".zRow").find("#is_edited").val("Y");
-        });
-    }   
+    $("#btnDeleteUser").click(function(){ 
+        $("#gridInactiveUsers").deleteData({
+            tableCode: "ref-00018"
+            ,onComplete : function(d){
+                $("#gridInactiveUsers").trigger("refresh");
+            }
+         });      
+    });
     
     $("#btnClear").click(function(){
         setSearch();
@@ -716,17 +358,18 @@ var users = (function(){
         displayRecords("");
     });
     
-    $("#btnSave").click(function () {
+    $("#btnSave").click(function () { 
         $("#grid").jsonSubmit({
              procedure  : "users_upd"
              ,optionalItems: ["is_admin", "is_active"]
-            ,onComplete : function (data) {
-                if(data.isSuccess===true){
-                    zsi.form.showAlert("alert");
-                    displayRecords();
-                }
+            // ,notIncludes: ["employee"]
+             ,onComplete : function (data) {
+                 if(data.isSuccess===true){
+                    zsi.form.showAlert("alert"); 
+                   displayRecords();
+                 }
             }
-        });
+        }); 
     });
     
     $("#btnNactive").click(function () {
@@ -789,4 +432,4 @@ var users = (function(){
     
     return pub;
 })();
-                                               
+                                                     

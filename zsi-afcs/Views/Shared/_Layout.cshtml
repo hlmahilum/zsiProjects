@@ -37,7 +37,7 @@
 		margin-right: 1.5rem;
 	}
 	.debugPanel {
-    	background-color: #fff;
+    	background-color: #fff; 
     	border: 0.1em solid #b7b2b2;
     	border-radius: 0 0 3px 3px;
     	font-size: 8pt;
@@ -595,14 +595,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dropdown-divider m-0"></div> 
-									 
-									<a href="javascript:void(0)" class="dropdown-item hide" id="fmis" onclick="callFmisFunction()">
-										<span>FMIS</span>
-									</a>
-									<a href="javascript:void(0)" class="dropdown-item hide" id="hcm" onclick="callHcmFunction()">
-                                        <span>HCM</span>
-                                    </a>
+                                    <div class="dropdown-divider m-0"></div>
                                     <a href="#" class="dropdown-item" data-action="app-reset">
                                         <span data-i18n="drpdwn.reset_layout">Reset Layout</span>
                                     </a>
@@ -634,11 +627,19 @@
                                             <a href="#?lang=ch" class="dropdown-item" data-action="lang" data-lang="ch">中文</a>
                                         </div>
                                     </div>
-                                    <div class="dropdown-divider m-0"></div>
+                                     <!-- <div class="dropdown-divider m-0"></div>
+									<div class="dropdown-multilevel dropdown-multilevel-left hide" id="listOfClients">
+                                        <div class="dropdown-item">
+                                            Clients
+                                        </div>
+                                        <div class="dropdown-menu" id="clientList" style="min-height:200px; height:200px; overflow:auto;"></div>
+                                    </div>-->
+									 <div class="dropdown-divider m-0"></div>
                                     <a id="logOutId" class="dropdown-item fw-500 pt-3 pb-3" href="@Url.Content("~/")page/signout">
                                         <span>Logout</span>
                                         <span class="float-right fw-n">&commat;@webCM.SessionHandler.getUserProp("userName")</span>
-                                    </a>
+                                    </a>  
+									
                                 </div>
                             </div>
                         </div>
@@ -1351,23 +1352,15 @@
 		<script src='@Url.Content("~/")js/formplugins/inputmask/inputmask.bundle.js'></script>
 		<script src='@Url.Content("~/")js/jquery.maskMoney.js'></script>
         <script src='@Url.Content("~/")js/jquery.maskMoney.min.js'></script>
-        <script src='@Url.Content("~/")scripts/printThis.js'></script>
+       <!-- <script src='@Url.Content("~/")scripts/printThis.js'></script>-->
 		<script src="@Url.Content("~/")amcharts4/core.js"></script>
 		<script src="@Url.Content("~/")amcharts4/charts.js"></script>
 		<script src="@Url.Content("~/")amcharts4/themes/animated.js"></script>  
-        <script type="text/javascript"> 
-			function callFmisFunction(){ 
-				window.open("http://zsi-server:801/page/home#p/dashboard");
-			}
-			function callHcmFunction(){ 
-				window.open("http://zsi-server:802/page/home#p/dashboard");
-			}
+        <script type="text/javascript">
 			
             /* Activate smart panels */
             $('#js-page-content').smartPanel();
             $(document).ready(function(){
-				if(app.userInfo.is_hcm === "Y") $("#hcm").removeClass("hide")
-				if(app.userInfo.is_fmis === "Y") $("#fmis").removeClass("hide")
                 $("#logOutId").click(function(){
                     window.localStorage.clear();
                 });
@@ -1494,7 +1487,6 @@
             {
                 $inputImage.prop('disabled', true).parent().addClass('disabled');
             }
-		 
         </script>
         <div class="alert alert-success zPopup-system">
             <p>Data has been saved.</p>

@@ -7894,26 +7894,6 @@ div nav #nav-tab .nav-link {
     color: #fff;
     background-image: linear-gradient(to bottom, #1a0dab 0px, #12078a 100%); }
 
-div ul.main-nav-tabs .nav-item .nav-link {
-  color: #000000;
-  margin-left: 2px; }
-  div ul.main-nav-tabs .nav-item .nav-link.active {
-    color: #fff !important;
-    background-image: linear-gradient(to bottom, #1a0dab 0px, #12078a 100%); }
-  div ul.main-nav-tabs .nav-item .nav-link:hover {
-    color: #fff !important;
-    background-image: linear-gradient(to bottom, #1a0dab 0px, #12078a 100%); }
-
-div ul.sub-nav-tabs .nav-item .nav-link {
-  color: #000000;
-  margin-left: 2px; }
-  div ul.sub-nav-tabs .nav-item .nav-link.active {
-    color: #fff !important;
-    background-image: linear-gradient(to bottom, #404040 0px, #404040 100%); }
-  div ul.sub-nav-tabs .nav-item .nav-link:hover {
-    color: #fff !important;
-    background-image: linear-gradient(to bottom, #404040 0px, #404040 100%); }
-
 .zTotal {
   background-image: linear-gradient(to bottom, #1a0dab 0px, #12078a 100%) !important; }
 
@@ -12870,96 +12850,5 @@ table.zTableReport {
   height: 25px; }
 
 /*# sourceMappingURL=hover.css.map */
-@font-face {
-  font-family: "afcs";
-  src: url("fonts/afcs.ttf?dqx0bk") format("truetype"), url("fonts/afcs.woff?dqx0bk") format("woff"), url("fonts/afcs.svg?dqx0bk#afcs") format("svg");
-  font-weight: normal;
-  font-style: normal;
-  font-display: block; }
-
-[class^="z-"], [class*=" z-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "afcs" !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-.z-ev_station:before {
-  content: ""; }
-
-.z-location-gas-station:before {
-  content: ""; }
-
-.z-copy:before {
-  content: ""; }
-
-.z-barcode:before {
-  content: ""; }
-
-.z-qrcode:before {
-  content: ""; }
-
-.z-cart:before {
-  content: ""; }
-
-.z-coin-dollar:before {
-  content: ""; }
-
-.z-alarm:before {
-  content: ""; }
-
-.z-printer:before {
-  content: ""; }
-
-.z-mobile:before {
-  content: ""; }
-
-.z-drawer:before {
-  content: ""; }
-
-.z-user:before {
-  content: ""; }
-
-.z-users:before {
-  content: ""; }
-
-.z-user-plus:before {
-  content: ""; }
-
-.z-user-minus:before {
-  content: ""; }
-
-.z-user-check:before {
-  content: ""; }
-
-.z-user-tie:before {
-  content: ""; }
-
-.z-aid-kit:before {
-  content: ""; }
-
-.z-briefcase:before {
-  content: ""; }
-
-.z-truck:before {
-  content: ""; }
-
-.z-road:before {
-  content: ""; }
-
-.z-enter:before {
-  content: ""; }
-
-.z-exit:before {
-  content: ""; }
-
-.z-loop:before {
-  content: ""; }
 
 /*# sourceMappingURL=app.bundle.css.map */

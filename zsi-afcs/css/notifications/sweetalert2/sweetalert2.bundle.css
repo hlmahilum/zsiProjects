@@ -364,8 +364,6 @@ aside.page-sidebar ($nav-width, $nav-background)
           justify-content: center;
   padding: 0.625em;
   overflow-x: hidden;
-  -webkit-transition: background-color 0.1s;
-  transition: background-color 0.1s;
   background-color: transparent;
   -webkit-overflow-scrolling: touch; }
   .swal2-container.swal2-top {
@@ -489,6 +487,9 @@ aside.page-sidebar ($nav-width, $nav-background)
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     .swal2-container .swal2-modal {
       margin: 0 !important; } }
+  .swal2-container.swal2-fade {
+    -webkit-transition: background-color 0.1s;
+    transition: background-color 0.1s; }
   .swal2-container.swal2-shown {
     background-color: rgba(0, 0, 0, 0.2); }
 
@@ -725,13 +726,21 @@ aside.page-sidebar ($nav-width, $nav-background)
     outline: none;
     -webkit-box-shadow: transparent;
             box-shadow: transparent; }
-  .swal2-input::-webkit-input-placeholder, .swal2-file::-webkit-input-placeholder, .swal2-textarea::-webkit-input-placeholder {
+  .swal2-input::-webkit-input-placeholder,
+  .swal2-file::-webkit-input-placeholder,
+  .swal2-textarea::-webkit-input-placeholder {
     color: #cccccc; }
-  .swal2-input::-moz-placeholder, .swal2-file::-moz-placeholder, .swal2-textarea::-moz-placeholder {
+  .swal2-input::-moz-placeholder,
+  .swal2-file::-moz-placeholder,
+  .swal2-textarea::-moz-placeholder {
     color: #cccccc; }
-  .swal2-input:-ms-input-placeholder, .swal2-file:-ms-input-placeholder, .swal2-textarea:-ms-input-placeholder {
+  .swal2-input:-ms-input-placeholder,
+  .swal2-file:-ms-input-placeholder,
+  .swal2-textarea:-ms-input-placeholder {
     color: #cccccc; }
-  .swal2-input::-ms-input-placeholder, .swal2-file::-ms-input-placeholder, .swal2-textarea::-ms-input-placeholder {
+  .swal2-input::-ms-input-placeholder,
+  .swal2-file::-ms-input-placeholder,
+  .swal2-textarea::-ms-input-placeholder {
     color: #cccccc; }
   .swal2-input::placeholder,
   .swal2-file::placeholder,

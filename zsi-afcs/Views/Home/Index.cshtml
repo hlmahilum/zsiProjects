@@ -78,6 +78,20 @@
 										
                                     </div>
                                 </form>
+								<!--<form id="viewQrForm" method="post" action='@Url.Content("~/")account/validate'>-->
+								<div>
+									<div class="mt-1">
+										<input type="checkbox" id="viewQR">
+										<label class="form-label">View QR Transaction </label> 
+									  
+										<div class="input-group input-group-sm " id="qrDiv"> 
+											<input id="qr_number" type="text" class="form-control" placeholder="Input QR Number..." aria-describedby="input-group-sm-size">
+											<div class="input-group-append">   
+												<button type="button" id="btnGo" class="btn btn-payroll shadow-0 waves-effect waves-themed">Go</button>
+											</div>
+										</div>
+									</div>
+								</div>
                             </div>
                         </div>
                     </div>
@@ -88,27 +102,52 @@
 </div>
 <script>
 $(document).ready(function () {
+	
     var msg = getUrlParamValue("access");
     var _username = readCookie("username");
-    window.localStorage.clear();
+    window.localStorage.clear(); 
     if(_username){
         if (msg !== "") {
-            $("#username").val(_username);
+           $("#username").val(_username);
             $("#password").val( readCookie("userpwd"));
-            $("#isremember").prop('checked',true);
+           $("#isremember").prop('checked',true);
             $("#frmLogin").submit();
-        }
-        else
+       }
+       else
             clearCookies();
-    }
+  }
     else {
-        if (msg) alert( unescape(msg) + " Please try again.")
+      if (msg) alert( unescape(msg) + " Please try again.")
     }
+	checkboxEvt();
 
 });
 
-$("#frmLogin").submit(function () {
+function checkboxEvt(){
+	$("#qr_number").val("");
+	$('#viewQR').prop('checked', false);
+	$("#qrDiv").hide();
+	createCookie("qr_number","",0);
+	$("#viewQR").on("change",function(){
+		if($(this).is(":checked")){
+			$("#qrDiv").show();  
+		}else{
+			$("#qrDiv").hide();
+		}
+	});
+	 
+}
+$("#btnGo").click(function(){ 
+	if($("#qr_number").val() === ""){
+		alert("QR number is required!");
+		return;
+	}
+	createCookie("qr_number",$("#qr_number").val(),1);
+	window.location.href = '@Url.Content("~/")pub/viewQRTransaction';
+})
 
+$("#frmLogin").submit(function () {
+	
     if ($("#username").val() === "") { alert("Please enter username."); return false; }
     if ($("#password").val() === "") { alert("Please enter password."); return false; }
 	checkRememberSignin();

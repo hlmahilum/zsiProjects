@@ -1,0 +1,67 @@
+ 
+ <style>
+    .zRow.zTotal, .zRow.zTotal:hover{
+        color: #fff;
+        font-weight: bold;
+    } 
+ </style>
+ 
+<div class="panel">
+    <div class="panel-container">
+        <div class="panel-content">  
+            <div class="row" id="">
+                 <div class="frame-wrap">
+                    <div class="custom-control custom-radio custom-control-inline"> 
+                        <label class="" for=""><b>Search:</b></label>
+                    </div> 
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="qrId" name="radioButton" value="QR Id..." checked="">
+                        <label class="custom-control-label" for="qrId">QR Id:</label>
+                    </div>
+                     <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" class="custom-control-input" id="phone" value="Phone No..." name="radioButton">
+                        <label class="custom-control-label" for="phone">Phone No:</label>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 mb-2">
+                <label class="col-form-label">&nbsp;</label>
+                <div class="input-group">
+                    <input type="number" id="qrNumber" class="form-control form-control-sm pl-1" name="qrNumber" placeholder="Input QR Id...">  
+                    <input type="text" id="qrNumber" class="form-control form-control-sm pl-1 hide"  name="phoneNumber" maxlength="11"  placeholder="Input Phone No..."  autocomplete="off" data-inputmask="'mask': '09999999999'" im-insert="true"/>
+                    <div class="input-group-append">
+                        <button id="btnFilterRecords" class="btn-sm btn btn-primary btn-outline-default text-white hvr-sweep-to-left" type="button" title="Filter">
+                          <i class="fas fa-filter"></i>
+                        </button>
+                    </div>
+                </div>
+            </div> 
+            <div class="row gridCollapse">
+                <div class="col-xl-12">
+                    <div class="panel" > 
+                        <div class="panel-container show " id="panelContainer">                                                 
+                            <div class="panel-content"> 
+                                <div class="row ">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                        <label class="col-form-label"><b>QR Amount:</b></label> <span id="spanBalAmt"></span>&nbsp; &nbsp;    
+                                        <label class="col-form-label"><b>Remaining Balance:</b></label> <span id="remBal"></span>  
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 mb-1 ">
+                                        <div class="zGrid" id="gridQRTransactions"></div>
+                                    </div> 
+                                </div> 
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+
+
+ 
