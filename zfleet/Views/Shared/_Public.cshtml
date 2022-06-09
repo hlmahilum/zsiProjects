@@ -1,85 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=edge" />
-    
+	<meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=edge" />
+
 	<meta charset="utf-8">
-        <meta name="description" content="Login">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
-		<meta name="Developed By" content="zetta-solutions.net">
-		<link rel="shortcut icon" href='@Url.Content("~/")favicon.png' type="image/x-icon">						
+	<meta name="description" content="Login">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+	<meta name="Developed By" content="zetta-solutions.net">
+	<link rel="shortcut icon" href='@Url.Content("~/")favicon.png' type="image/x-icon">						
 
-		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-		<link rel="shortcut icon" href="@Url.Content("~/")assets/images/zfleet-logo-cyan-bg.png" type="image/x-icon">
-		<meta name="description" content="">
-		<title>@ViewBag.pageTitle - Zfleet.ph </title>
-		<script src='@Url.Content("~/")Scripts/jquery.min.js'></script>
-		<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>
-		<script src='@Url.Content("~/")Scripts/detectmobilebrowser.js'></script>
-        <!-- Call App Mode on ios devices -->
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <!-- Remove Tap Highlight on Windows Phone IE -->
-        <meta name="msapplication-tap-highlight" content="no">
-        
-		<!-- base css -->
-		<link rel="stylesheet" href="@Url.Content("~/")assets/web/assets/mobirise-icons/mobirise-icons.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap-grid.min.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap-reboot.min.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/socicon/css/styles.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/dropdown/css/style.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/tether/tether.min.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/theme/css/style.css">
-		<link rel="preload" as="style" href="@Url.Content("~/")assets/mobirise/css/mbr-additional.css">
-		<link rel="stylesheet" href="@Url.Content("~/")assets/mobirise/css/mbr-additional.css" type="text/css">
-	
-		
-    @Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsipublib"))  
-    @{
-        string userId = "";
-    }
-    <script>
-        var base_url = '@Url.Content("~/")';
-        var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
-    </script>
-	<style>	
-	
-	.video-text{position:absolute;
-	margin-top:10rem;}
-	.logo-zfleet{
-		background-image: url(assets/images/zfleet-logo-white.png);
-		position:absolute;
-		z-index:1;
-	}
-	.cid-s2xk43HheR .full-screen .carousel-item .container.container-slide img {
-    <!-- display: flex !important; -->
-	}
-	.carousel .carousel-inner .carousel-item .container-slide .image_wrapper .carousel-caption div img{
-		display: block;
-		width: 100px;
-	}
-	.zproducts .text{
-		height: 100px;
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	<link rel="shortcut icon" href="@Url.Content("~/")assets/images/zfleet-logo-cyan-bg.png" type="image/x-icon">
+	<meta name="description" content="">
+	<title>@ViewBag.pageTitle - Zfleet.ph </title>
+	<!-- Call App Mode on ios devices -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<!-- Remove Tap Highlight on Windows Phone IE -->
+	<meta name="msapplication-tap-highlight" content="no">
 
-	}
-	.zabout .text{
-		height: 100px;
-
-	}
-	pageTitle{display:none}
-  </style>
-	<script>
-		$('ul.nav').find('a').click(function(){
-		var $href = $(this).attr('href');
-		var $anchor = $('#'+$href).offset();
-		window.scrollTo($anchor.left,$anchor.top);
-		return false;
-		});
-	</script>	
+	<!-- base css -->
+	<link rel="stylesheet" href="@Url.Content("~/")assets/web/assets/mobirise-icons/mobirise-icons.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/bootstrap/css/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/socicon/css/styles.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/dropdown/css/style.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/tether/tether.min.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/theme/css/style.css">
+	<link rel="preload" as="style" href="@Url.Content("~/")assets/mobirise/css/mbr-additional.css">
+	<link rel="stylesheet" href="@Url.Content("~/")assets/mobirise/css/mbr-additional.css" type="text/css">
+	<link rel="stylesheet" href="@Url.Content("~/")css/public.css" type="text/css">		
 </head>
 
 <body>
+<script src="@Url.Content("~/")assets/web/assets/jquery/jquery.min.js"></script>
+<script>
+	var base_url = '@Url.Content("~/")';
+	var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
+</script>
     <!-- <div class="progressWindow zPopup-system"> -->
         <!-- <div class="loadingImg"></div> -->
         <!-- <div class="loadingText">Loading...Please wait</div> -->
@@ -88,50 +47,46 @@
         <!-- Some processe(s) encountered a problem. -->
         <!-- <br> Please Contact System Administrator. -->
     <!-- </div> -->
-	<section class="menu cid-s2gnuxMRf8" once="menu" id="menu2-0">    
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="@Url.Content("~/")#">
-                        <img src="@Url.Content("~/")assets/images/zfleet-logo.png" alt="ZFleet" title="" style="height: 3.8rem;">
-                    </a>
-                </span>
-                
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="@Url.Content("~/")#">
-                        Home</a>
-                </li><li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")#our-products">
-                        Products</a></li>
-					<li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")pub/careers">
-                        Careers</a></li>
-                <li class="nav-item">
-                    <a class="nav-link link text-black display-4" href="@Url.Content("~/")#about-us">
-                        About Us
-                    </a>
-                </li><li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")#">
-                        Contact Us
-                    </a></li></ul>
-            
-        </div>
-    </nav>
+<section class="menu cid-s2gnuxMRf8" once="menu" id="menu2-0">    
+<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<div class="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</button>
+	<div class="menu-logo">
+		<div class="navbar-brand">
+			<span class="navbar-logo">
+				<a href="@Url.Content("~/")#">
+					<img src="@Url.Content("~/")assets/images/zfleet-logo.png" alt="ZFleet" title="" style="height: 3.8rem;">
+				</a>
+			</span>
+			
+		</div>
+	</div>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item">
+				<a class="nav-link link text-black display-4" href="@Url.Content("~/")#">
+					Home</a>
+			</li><li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")#our-products">
+					Products</a></li>
+				<li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")pub/careers">
+					Careers</a></li>
+			<li class="nav-item">
+				<a class="nav-link link text-black display-4" href="@Url.Content("~/")#about-us">
+					About Us
+				</a>
+			</li><li class="nav-item"><a class="nav-link link text-black display-4" href="@Url.Content("~/")#">
+					Contact Us
+				</a></li></ul>
+		
+	</div>
+</nav>
 </section>
-	
-	@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("appPubStart"))
-	
-	@RenderBody()
-	
+@RenderBody()
 <section class="cid-s2u9uk5mxn" id="footer2-8">
     <div class="container">
         <div class="media-container-row content mbr-white">
@@ -139,13 +94,13 @@
                 <p class="mbr-text">
                     <strong>Address</strong>
                     <br>
-                    <br>Unit 201, 2nd/Floor Insular Square, 31 J.P. Rizal St., Tabok, Mandaue City, Cebu, Philippines 6014
+                    <br>Rm 305 3rd Flr. AWPM Bldg, MC Briones Ibabao, Highway, Mandaue City, Cebu, Philippines 6014
                     <br>
                     <br>
                     <br><strong>Contacts</strong>
                     <br>
                     <br>Email: support@zfleet.ph
-                    <br>Phone: +63 32 326 1135
+                    <br>Phone: +63 32 273 4502
                     
                 </p>
             </div>
@@ -158,7 +113,7 @@
             </div>
             <div class="col-12 col-md-6">
                 <div class="google-map">
-					<iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d852.1819158196017!2d123.94831852916658!3d10.350525018819374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a999325176bdad%3A0x33e58fd12278dfad!2sZettaSolutions%20Inc.!5e1!3m2!1sen!2sph!4v1573714605313!5m2!1sen!2sph" allowfullscreen="">
+					<iframe frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.0681820449563!2d123.93973331479701!3d10.336428792621025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9999c73a626c9%3A0x3be537779f62f6e1!2sZetta%20Solutions%20Inc.!5e0!3m2!1sen!2sph!4v1613369744266!5m2!1sen!2sph" allowfullscreen="">
 					</iframe>
 				</div>
             </div>
@@ -187,109 +142,72 @@
                                 <span class="socicon-facebook socicon mbr-iconfont mbr-iconfont-social"></span>
                             </a>
                         </div>
-                        <!-- <div class="soc-item"> -->
-                            <!-- <a href="#" target="_blank"> -->
-                                <!-- <span class="socicon-youtube socicon mbr-iconfont mbr-iconfont-social"></span> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-                        <!-- <div class="soc-item"> -->
-                            <!-- <a href="#" target="_blank"> -->
-                                <!-- <span class="socicon-instagram socicon mbr-iconfont mbr-iconfont-social"></span> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-                        <!-- <div class="soc-item"> -->
-                            <!-- <a href="#" target="_blank"> -->
-                                <!-- <span class="socicon-googleplus socicon mbr-iconfont mbr-iconfont-social"></span> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
-                        <!-- <div class="soc-item"> -->
-                            <!-- <a href="#" target="_blank"> -->
-                                <!-- <span class="socicon-behance socicon mbr-iconfont mbr-iconfont-social"></span> -->
-                            <!-- </a> -->
-                        <!-- </div> -->
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<script src="@Url.Content("~/")assets/popper/popper.min.js"></script>
+<script src="@Url.Content("~/")assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="@Url.Content("~/")assets/smoothscroll/smooth-scroll.js"></script>
+<script src="@Url.Content("~/")assets/dropdown/js/nav-dropdown.js"></script>
+<script src="@Url.Content("~/")assets/dropdown/js/navbar-dropdown.js"></script>
+<script src="@Url.Content("~/")assets/touchswipe/jquery.touch-swipe.min.js"></script>
+<script src="@Url.Content("~/")assets/parallax/jarallax.min.js"></script>
+<script src="@Url.Content("~/")assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
+<script src="@Url.Content("~/")assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+<script src="@Url.Content("~/")assets/tether/tether.min.js"></script>
+<script src="@Url.Content("~/")assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+<script src="@Url.Content("~/")assets/theme/js/script.js"></script>
+<script src="@Url.Content("~/")assets/slidervideo/script.js"></script>
+<script src="@Url.Content("~/")assets/formoid/formoid.min.js"></script>
+<script src='@Url.Content("~/")js/vendors.bundle.js'></script>
+<script src='@Url.Content("~/")js/app.bundle.js'></script>
+<script src='@Url.Content("~/")js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js'></script>
+<script src='@Url.Content("~/")js/formplugins/inputmask/inputmask.bundle.js'></script>
+<script src='@Url.Content("~/")js/formplugins/select2/select2.bundle.js'></script>
 
+<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>
+<script src='@Url.Content("~/")Scripts/detectmobilebrowser.js'></script>
+@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsipublib"))  
+<script>
+	$('ul.nav').find('a').click(function(){
+		var $href = $(this).attr('href');
+		var $anchor = $('#'+$href).offset();
+		window.scrollTo($anchor.left,$anchor.top);
+		return false;
+	});
+</script>	
+@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("easyJsTemplateWriter"))			
+@Html.Raw(ViewBag.GetScriptLinkCurrentVersion("appPubStart"))
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#defaultIndeterminate').prop('indeterminate', true)
 
-	<script src="@Url.Content("~/")assets/web/assets/jquery/jquery.min.js"></script>
-	<script src="@Url.Content("~/")assets/popper/popper.min.js"></script>
-	<script src="@Url.Content("~/")assets/bootstrap/js/bootstrap.min.js"></script>
-	<script src="@Url.Content("~/")assets/smoothscroll/smooth-scroll.js"></script>
-	<script src="@Url.Content("~/")assets/dropdown/js/nav-dropdown.js"></script>
-	<script src="@Url.Content("~/")assets/dropdown/js/navbar-dropdown.js"></script>
-	<script src="@Url.Content("~/")assets/touchswipe/jquery.touch-swipe.min.js"></script>
-	<script src="@Url.Content("~/")assets/parallax/jarallax.min.js"></script>
-	<script src="@Url.Content("~/")assets/ytplayer/jquery.mb.ytplayer.min.js"></script>
-	<script src="@Url.Content("~/")assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
-	<script src="@Url.Content("~/")assets/tether/tether.min.js"></script>
-	<script src="@Url.Content("~/")assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
-	<script src="@Url.Content("~/")assets/theme/js/script.js"></script>
-	<script src="@Url.Content("~/")assets/slidervideo/script.js"></script>
-	<script src="@Url.Content("~/")assets/formoid/formoid.min.js"></script>
+		var toggleCheckbox = function()
+		{
+			$('#js-checkbox-toggle').toggleText('Change to CIRCLE', 'Change back to default');
+			$('.frame-wrap .custom-checkbox').toggleClass('custom-checkbox-circle');
+		}
 
+		var toggleRadio = function()
+		{
+			$('#js-radio-toggle').toggleText('Change to ROUNDED', 'Change back to default');
+			$('.frame-wrap .custom-radio').toggleClass('custom-radio-rounded');
+		}
+	
+	});
+</script>
 
-    @Html.Raw(ViewBag.GetScriptLinkCurrentVersion("easyJsTemplateWriter"))		
-	<script src='@Url.Content("~/")js/vendors.bundle.js'></script>
-	<script src='@Url.Content("~/")js/app.bundle.js'></script>
-	<script src='@Url.Content("~/")js/formplugins/bootstrap-datepicker/bootstrap-datepicker.js'></script>
-	<script src='@Url.Content("~/")js/formplugins/inputmask/inputmask.bundle.js'></script>
-	<script src='@Url.Content("~/")js/formplugins/select2/select2.bundle.js'></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('#defaultIndeterminate').prop('indeterminate', true)
-
-            var toggleCheckbox = function()
-            {
-                $('#js-checkbox-toggle').toggleText('Change to CIRCLE', 'Change back to default');
-                $('.frame-wrap .custom-checkbox').toggleClass('custom-checkbox-circle');
-            }
-
-            var toggleRadio = function()
-            {
-                $('#js-radio-toggle').toggleText('Change to ROUNDED', 'Change back to default');
-                $('.frame-wrap .custom-radio').toggleClass('custom-radio-rounded');
-            }
-		
-		});
-    </script>
-	<!-- Load Facebook SDK for JavaScript -->
-      <div id="fb-root"></div>
-      <script>
-        window.fbAsyncInit = function() {
-			  FB.init({
-				xfbml            : true,
-				version          : 'v7.0'
-			  });
-		  
-			FB.Event.subscribe('customerchat.load', function(){					
-				setTimeout(function(){ 
-					FB.CustomerChat.hideDialog();					
-				}, 1000);
-					
-			});
-				
-		  
-		  
-        };
-
-        (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));</script>
-
-      <!-- Your Chat Plugin code -->
-      <div class="fb-customerchat"
-        attribution=setup_tool
-        page_id="107506740786479">
-      </div>
-	  
+@Html.Raw(ViewBag.pageJSLink) 
+	
+ <!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<!-- Your Chat Plugin code -->
+<div class="fb-customerchat" attribution=setup_tool page_id="107506740786479"> </div>
+ <script src='@Url.Content("~/")Scripts/fb-msgr.js'></script>	  
 </body>
 </html>
 

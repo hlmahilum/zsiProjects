@@ -1,0 +1,27 @@
+	.btn,.btn-md{
+		padding: 0.3rem 2rem !important;
+	}
+	.video-text{position:absolute;
+	margin-top:10rem;}
+	.logo-zfleet{
+		background-image: url(assets/images/zfleet-logo-white.png);
+		position:absolute;
+		z-index:1;
+	}
+	.cid-s2xk43HheR .full-screen .carousel-item .container.container-slide img {
+   
+	}
+	.carousel .carousel-inner .carousel-item .container-slide .image_wrapper .carousel-caption div img{
+		display: block;
+		width: 100px;
+	}
+	.zproducts .text{
+		height: 120px;
+
+	}
+	.zabout .text{
+		height: 100px;
+
+	}
+	
+	pageTitle{display:none}

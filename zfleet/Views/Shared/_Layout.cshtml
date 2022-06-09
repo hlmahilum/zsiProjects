@@ -7,8 +7,6 @@
 	<meta name="Developed By" content="zetta-solutions.net">
     <link rel="shortcut icon" href='@Url.Content("~/")favicon.png' type="image/x-icon">
     <title>@ViewBag.pageTitle - ZSI AFCS </title>
-	<script src='@Url.Content("~/")Scripts/jquery.min.js'></script>
-	<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>
    <!-- Call App Mode on ios devices -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<!-- Remove Tap Highlight on Windows Phone IE -->
@@ -24,17 +22,6 @@
     <link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/formplugins/bootstrap-datepicker/bootstrap-datepicker.css'>
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" media="screen, print" href='@Url.Content("~/")css/formplugins/summernote/summernote.css'>
-    @Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsiLib"))
-    @{
-        string userId = "";
-        if ( zsi.web.SessionHandler.CurrentUser != null){ userId = "var userId=" + zsi.web.SessionHandler.CurrentUser.userId + ";"; }
-    }
-    <script>
-        var base_url = '@Url.Content("~/")';
-        var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
-        @userId
-    </script>
- 
 	<style>
     .zRow.zTotal{
         position:absolute;    
@@ -78,7 +65,19 @@
     }
 	</style>
 </head>
-<body class="mod-bg-1 ">   
+<body class="mod-bg-1 ">  
+	<script src='@Url.Content("~/")Scripts/jquery.min.js'></script>
+	<script src='@Url.Content("~/")Scripts/handlebars.min.js'></script>	
+    @Html.Raw(ViewBag.GetScriptLinkCurrentVersion("zsiLib"))
+    @{
+        string userId = "";
+        if ( zsi.web.SessionHandler.CurrentUser != null){ userId = "var userId=" + zsi.web.SessionHandler.CurrentUser.userId + ";"; }
+    }
+    <script>
+        var base_url = '@Url.Content("~/")';
+        var controller_url = '@this.Context.Request.RequestContext.RouteData.Values["controller"].ToString()';
+        @userId
+    </script> 
     <div class="progressWindow zPopup-system">
         <div class="loadingImg"></div>
         <div class="loadingText">Loading...Please wait</div>
